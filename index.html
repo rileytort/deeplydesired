@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Deeply Desired - AI Powered Creative Tools & Digital Goods</title>
+  <title>Deeply Desired - Minimal AI Creative Tools & Digital Goods for Modern Creators</title>
+  <meta name="description" content="Unlock your creative potential with Deeply Desired's AI-powered tools and premium digital goods. Get high-res AI art, editable logo templates, social media kits, and more. Join our community and elevate your designs." />
+
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="images/favicon.png"> <style>
+  <link rel="icon" type="image/png" href="images/favicon.png"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
     body {
       font-family: 'Space Grotesk', sans-serif;
       margin: 0;
@@ -48,6 +52,7 @@
       border-radius: 5px;
       margin-top: 20px;
       transition: background 0.3s ease, transform 0.2s ease;
+      cursor: pointer; /* Ensure buttons show a pointer */
     }
 
     .button:hover {
@@ -84,3 +89,801 @@
       margin: 0 18px;
       font-weight: bold;
       font-size: 1.1em;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #0077cc;
+    }
+
+    /* Form Styles */
+    input[type="email"] {
+      padding: 12px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-top: 10px;
+      font-size: 1em;
+    }
+
+    input[type="submit"] {
+      padding: 12px 24px;
+      background: #111;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      margin-left: 10px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background: #333;
+    }
+
+    .form-message {
+      margin-top: 15px;
+      font-weight: bold;
+      color: green;
+      display: none; /* Hidden by default */
+    }
+    .form-message.error {
+      color: red;
+    }
+    .loading-spinner {
+      display: none;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #111;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 1s linear infinite;
+      margin: 10px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Shop Grid */
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      padding: 20px 0;
+    }
+
+    .product {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 25px;
+      background: #fdfdfd;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .product h3 {
+      margin-top: 0;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .product p {
+      font-size: 1em;
+      color: #555;
+      min-height: 40px;
+    }
+
+    .product a.button { /* Ensure the button style is applied to product buy links */
+      text-decoration: none;
+      color: #fff; /* White text for button */
+      background: #111; /* Dark background for button */
+      padding: 10px 20px; /* Smaller padding for inline button */
+      border-radius: 5px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 15px;
+      transition: background 0.3s ease;
+    }
+
+    .product a.button:hover {
+      background: #333;
+    }
+
+
+    /* Testimonials */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .testimonial-item {
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .testimonial-item p {
+      font-style: italic;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-item .author {
+      font-weight: bold;
+      color: #111;
+      text-align: right;
+      display: block;
+    }
+
+    /* About Section */
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .about-content p {
+      margin-bottom: 20px;
+    }
+
+    /* Social Media Icons */
+    .social-links {
+      margin-top: 40px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 15px;
+      font-size: 2em;
+      color: #111;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #0077cc;
+    }
+
+    /* Scroll to Top Button */
+    #scrollToTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: #111;
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 50%;
+      font-size: 1.5em;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    #scrollToTopBtn:hover {
+      background-color: #0077cc;
+      transform: translateY(-3px);
+    }
+
+    /* Quick View Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s forwards;
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 40px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 700px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      position: relative;
+      animation: slideIn 0.3s forwards;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .modal-content img {
+      max-width: 80%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 25px;
+    }
+
+    .modal-content h3 {
+      font-size: 2em;
+      margin-bottom: 15px;
+      color: #111;
+    }
+
+    .modal-content p {
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .close-button {
+      color: #aaa;
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .close-button:hover,
+    .close-button:focus {
+      color: #333;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+        from { transform: translateY(-50px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Lead Magnet Pop-up */
+    #leadMagnetPopup {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1002; /* Higher than product modal */
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s forwards;
+      padding: 20px; /* Padding for mobile */
+      box-sizing: border-box; /* Include padding in width/height */
+    }
+
+    #leadMagnetPopup .popup-content {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+      position: relative;
+      animation: slideIn 0.3s forwards;
+    }
+
+    #leadMagnetPopup .popup-content h3 {
+      font-size: 2em;
+      margin-top: 0;
+      color: #111;
+    }
+
+    #leadMagnetPopup .popup-content p {
+      font-size: 1.1em;
+      color: #444;
+      margin-bottom: 25px;
+    }
+
+    #leadMagnetPopup .popup-content .close-button {
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5em;
+      }
+      h2 {
+        font-size: 1.8em;
+      }
+      .section {
+        padding: 50px 15px;
+      }
+      input[type="email"] {
+        width: calc(100% - 24px);
+        margin-bottom: 10px;
+        margin-left: 0;
+      }
+      input[type="submit"] {
+        width: 100%;
+        margin-left: 0;
+      }
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+      .shop-grid, .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+      .modal-content {
+        width: 90%;
+        padding: 25px;
+      }
+      .modal-content img {
+        max-width: 100%;
+      }
+      #leadMagnetPopup .popup-content {
+        padding: 25px;
+      }
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YOUR_MEASUREMENT_ID');
+
+    // Track page view event (default, but good to confirm)
+    gtag('event', 'page_view', {
+      page_title: document.title,
+      page_location: window.location.href,
+      page_path: window.location.pathname,
+    });
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "AI-Generated Art Pack",
+    "image": "https://via.placeholder.com/600x450/f0f0f0/333333?text=AI+Art+Pack",
+    "description": "A curated collection of high-resolution JPGs and transparent PNGs, perfect for personal or commercial projects. Explore unique styles generated by advanced AI, instantly elevating your designs.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Deeply Desired"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://yourgumroadlink.com/ai-art-pack",
+      "priceCurrency": "USD",
+      "price": "19.99",
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "25"
+    },
+    "review": [{
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "name": "Game-Changer for My Workflow!",
+      "author": {
+        "@type": "Person",
+        "name": "Alex C."
+      },
+      "reviewBody": "Deeply Desired's AI art packs are an absolute game-changer for my design workflow. The quality and variety are unmatched!",
+      "datePublished": "2025-05-20"
+    }]
+  }
+  </script>
+  </head>
+
+<body>
+  <nav>
+    <a href="#shop" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Shop'});">Shop</a>
+    <a href="#signup" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Join Us'});">Join Us</a>
+    <a href="#testimonials" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Testimonials'});">Testimonials</a>
+    <a href="#about" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'About Us'});">About</a>
+    <a href="#contact" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Contact'});">Contact</a>
+  </nav>
+
+  <header>
+    <h1>Deeply Desired</h1>
+    <p>Minimal, AI-powered creative tools & digital goods for modern creators.</p>
+    <a class="button" href="#signup" onclick="gtag('event', 'click', { 'event_category': 'Hero', 'event_label': 'Start Creating'});">Unlock Your Creative Potential →</a>
+  </header>
+
+  <section id="signup" class="section">
+    <h2>Join Our Creative List & Get a FREE AI Icon Pack!</h2>
+    <p>Gain early access to exclusive AI tools, fresh digital drops, and members-only offers. Instantly download your free icon pack upon signup!</p>
+    <form id="signup-form" action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="email" name="email" placeholder="you@example.com" required aria-label="Email Address for Newsletter" />
+      <input type="submit" value="Get Your Free Pack!" onclick="gtag('event', 'submit', { 'event_category': 'Form', 'event_label': 'Signup Form'});" />
+      <div class="loading-spinner"></div>
+      <div class="form-message"></div>
+      <input type="hidden" name="_next" value="https://yourwebsite.com/thankyou.html">
+      <input type="hidden" name="_subject" value="New Subscriber from Deeply Desired">
+    </form>
+    <p style="margin-top: 20px; font-size: 0.9em; color: #666;">*Your free icon pack download link will be sent to your email immediately.</p>
+  </section>
+
+  <section class="section" id="shop">
+    <h2>Explore Our Digital Collection</h2>
+    <div class="shop-grid">
+      <div class="product"
+           data-product-name="AI-Generated Art Pack"
+           data-product-short-desc="High-res JPGs + transparent PNGs"
+           data-product-desc="A curated collection of high-resolution JPGs and transparent PNGs, perfect for personal or commercial projects. Explore unique styles generated by advanced AI, instantly elevating your designs."
+           data-product-img="https://via.placeholder.com/600x450/f0f0f0/333333?text=AI+Art+Pack"
+           data-gumroad-link="https://yourgumroadlink.com/ai-art-pack"
+           onclick="gtag('event', 'view_item_list', { 'items': [{ 'item_id': 'DD-ART001', 'item_name': 'AI-Generated Art Pack', 'item_category': 'AI Art', 'price': 19.99 }] });">
+        <img src="https://via.placeholder.com/400x300/f0f0f0/333333?text=AI+Art+Pack" alt="AI-Generated Art Pack Preview">
+        <h3>AI-Generated Art Pack</h3>
+        <p>High-res JPGs + transparent PNGs</p>
+        <a href="https://yourgumroadlink.com/ai-art-pack" target="_blank" class="button"
+           onclick="event.stopPropagation(); gtag('event', 'add_to_cart', { 'items': [{ 'item_id': 'DD-ART001', 'item_name': 'AI-Generated Art Pack', 'item_category': 'AI Art', 'price': 19.99 }] });">Buy Now →</a>
+      </div>
+      <div class="product"
+           data-product-name="Logo Design Templates"
+           data-product-short-desc="Editable in Figma & Canva"
+           data-product-desc="Professionally designed, fully editable logo templates. Available in Figma and Canva formats for effortless customization to perfectly fit your brand's unique identity and style."
+           data-product-img="https://via.placeholder.com/600x450/f0f0f0/333333?text=Logo+Templates"
+           data-gumroad-link="https://yourgumroadlink.com/logo-templates"
+           onclick="gtag('event', 'view_item_list', { 'items': [{ 'item_id': 'DD-LOGO001', 'item_name': 'Logo Design Templates', 'item_category': 'Templates', 'price': 29.99 }] });">
+        <img src="https://via.placeholder.com/400x300/f0f0f0/333333?text=Logo+Templates" alt="Logo Design Templates Preview">
+        <h3>Logo Design Templates</h3>
+        <p>Editable in Figma & Canva</p>
+        <a href="https://yourgumroadlink.com/logo-templates" target="_blank" class="button"
+           onclick="event.stopPropagation(); gtag('event', 'add_to_cart', { 'items': [{ 'item_id': 'DD-LOGO001', 'item_name': 'Logo Design Templates', 'item_category': 'Templates', 'price': 29.99 }] });">Buy Now →</a>
+      </div>
+      <div class="product"
+           data-product-name="AI Social Media Kit"
+           data-product-short-desc="AI-enhanced social media templates"
+           data-product-desc="Boost your online presence with AI-enhanced social media templates. Get ready-to-use designs for Instagram, Facebook, and more, ensuring a consistent and professional brand image across all platforms."
+           data-product-img="https://via.placeholder.com/600x450/f0f0f0/333333?text=Social+Media+Kit"
+           data-gumroad-link="https://yourgumroadlink.com/social-media-kit"
+           onclick="gtag('event', 'view_item_list', { 'items': [{ 'item_id': 'DD-SMK001', 'item_name': 'AI Social Media Kit', 'item_category': 'Templates', 'price': 24.99 }] });">
+        <img src="https://via.placeholder.com/400x300/f0f0f0/333333?text=Social+Media+Kit" alt="Social Media Kit Preview">
+        <h3>AI Social Media Kit</h3>
+        <p>AI-enhanced social media templates</p>
+        <a href="https://yourgumroadlink.com/social-media-kit" target="_blank" class="button"
+           onclick="event.stopPropagation(); gtag('event', 'add_to_cart', { 'items': [{ 'item_id': 'DD-SMK001', 'item_name': 'AI Social Media Kit', 'item_category': 'Templates', 'price': 24.99 }] });">Buy Now →</a>
+      </div>
+      <div class="product"
+           data-product-name="Digital Brush Pack"
+           data-product-short-desc="For Photoshop & Procreate"
+           data-product-desc="Expand your creative toolkit with unique digital brushes for popular design software like Photoshop and Procreate. Designed for artists and illustrators to add depth and texture to their work."
+           data-product-img="https://via.placeholder.com/600x450/f0f0f0/333333?text=Digital+Brush+Pack"
+           data-gumroad-link="https://yourgumroadlink.com/digital-brushes"
+           onclick="gtag('event', 'view_item_list', { 'items': [{ 'item_id': 'DD-BRUSH001', 'item_name': 'Digital Brush Pack', 'item_category': 'Assets', 'price': 14.99 }] });">
+        <img src="https://via.placeholder.com/400x300/f0f0f0/333333?text=Digital+Brush+Pack" alt="Digital Brush Pack Preview">
+        <h3>Digital Brush Pack</h3>
+        <p>For Photoshop & Procreate</p>
+        <a href="https://yourgumroadlink.com/digital-brushes" target="_blank" class="button"
+           onclick="event.stopPropagation(); gtag('event', 'add_to_cart', { 'items': [{ 'item_id': 'DD-BRUSH001', 'item_name': 'Digital Brush Pack', 'item_category': 'Assets', 'price': 14.99 }] });">Buy Now →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials" style="background: #fafafa;">
+    <h2>What Our Creators Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-item">
+        <p>"Deeply Desired's AI art packs are an absolute game-changer for my design workflow. The quality and variety are unmatched!"</p>
+        <span class="author">- Alex C., Graphic Designer</span>
+      </div>
+      <div class="testimonial-item">
+        <p>"I needed a logo fast, and their templates were incredibly easy to customize. Saved me so much time and effort. Highly recommend!"</p>
+        <span class="author">- Jamie L., Startup Founder</span>
+      </div>
+      <div class="testimonial-item">
+        <p>"The creative list emails are genuinely valuable. Always new insights and exciting drops. Plus, the freebie was a nice bonus!"</p>
+        <span class="author">- Sarah P., Digital Artist</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Deeply Desired: Empowering Modern Creativity</h2>
+    <div class="about-content">
+      <p>At Deeply Desired, we believe in empowering creators with the most innovative tools and resources. We're a passionate team dedicated to exploring the intersection of artificial intelligence and creative expression.</p>
+      <p>Our mission is to simplify your creative process, providing you with high-quality digital goods and AI-powered utilities that spark inspiration and accelerate your projects. From unique art assets to versatile templates, we meticulously craft everything to ensure it meets your 'deepest desires' for creativity.</p>
+      <p>Join us on this journey to redefine what's possible in the digital creative space. We're constantly innovating and adding new products to help you bring your visions to life, effortlessly.</p>
+    </div>
+  </section>
+
+  <footer class="section" id="contact" style="background: #fafafa;">
+    <h2>Connect With Us</h2>
+    <p>Have questions, suggestions, or just want to say hello? We'd love to hear from you!</p>
+    <p>Email us directly: <a href="mailto:hello@deeplydesired.com" style="color: #0077cc; text-decoration: none; font-weight: bold;">hello@deeplydesired.com</a></p>
+    <p style="margin-top: 30px;">Follow our creative journey on social media:</p>
+    <div class="social-links">
+      <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Follow us on Instagram" onclick="gtag('event', 'click', { 'event_category': 'Social', 'event_label': 'Instagram Footer'});"><i class="fab fa-instagram"></i></a>
+      <a href="https://pinterest.com/yourprofile" target="_blank" aria-label="Find us on Pinterest" onclick="gtag('event', 'click', { 'event_category': 'Social', 'event_label': 'Pinterest Footer'});"><i class="fab fa-pinterest"></i></a>
+      <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Follow us on X (Twitter)" onclick="gtag('event', 'click', { 'event_category': 'Social', 'event_label': 'X Footer'});"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    <p style="margin-top: 40px; font-size: 0.9em; color: #666;">&copy; 2025 Deeply Desired &middot; All rights reserved</p>
+  </footer>
+
+  <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+  <div id="productQuickViewModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <img id="modalProductImage" src="" alt="Product Image">
+      <h3 id="modalProductName"></h3>
+      <p id="modalProductDescription"></p>
+      <a id="modalBuyNowButton" href="#" target="_blank" class="button"
+         onclick="gtag('event', 'purchase_attempt', { 'event_category': 'Product Modal', 'event_label': 'Buy Now Modal Click', 'item_id': modalBuyNowButton.dataset.itemId, 'item_name': modalProductName.textContent });">Buy Now →</a>
+    </div>
+  </div>
+
+  <div id="leadMagnetPopup" class="modal">
+    <div class="popup-content">
+      <span class="close-button" id="closeLeadMagnetPopup">&times;</span>
+      <h3>Unlock Your Creative Flow!</h3>
+      <p>Join our exclusive creative community and get a **FREE AI Icon Pack** to supercharge your next project!</p>
+      <img src="https://via.placeholder.com/300x200/e0e0e0/555555?text=Free+AI+Icon+Pack" alt="Free AI Icon Pack Preview" style="max-width: 100%; height: auto; border-radius: 5px; margin-bottom: 20px;">
+      <a href="#signup" class="button" onclick="closeLeadMagnetPopupAndScroll(); gtag('event', 'click', { 'event_category': 'Popup', 'event_label': 'Get Free Pack Popup'});">Get Your Free Pack Now →</a>
+      <p style="font-size: 0.85em; margin-top: 20px; color: #888;">No spam, just pure creative inspiration.</p>
+    </div>
+  </div>
+
+
+  <script>
+    // 1. Sticky Nav Bar with background change on scroll
+    window.onscroll = function() {
+      const nav = document.querySelector('nav');
+      if (window.pageYOffset > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+
+      // 4. Show/Hide Scroll to Top Button
+      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollToTopBtn.style.display = "block";
+      } else {
+        scrollToTopBtn.style.display = "none";
+      }
+    };
+
+    // 2. Form Submission Feedback (using Fetch API for Formspree)
+    const signupForm = document.getElementById('signup-form');
+    const formMessage = signupForm.querySelector('.form-message');
+    const loadingSpinner = signupForm.querySelector('.loading-spinner');
+
+    signupForm.addEventListener('submit', async function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      loadingSpinner.style.display = 'block'; // Show spinner
+      formMessage.style.display = 'none'; // Hide previous messages
+
+      try {
+        const response = await fetch(signupForm.action, {
+          method: 'POST',
+          body: new FormData(signupForm),
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          formMessage.textContent = 'Success! Redirecting you now...';
+          formMessage.classList.remove('error');
+          formMessage.style.display = 'block';
+          signupForm.reset(); // Clear the form
+
+          // GA4: Track Lead Generation Event
+          gtag('event', 'generate_lead', {
+            'event_category': 'Conversion',
+            'event_label': 'Email Signup - Free Pack',
+            'value': 1 // Assign a value if desired, e.g., for lead
+          });
+
+          // Redirect to thank you page after a short delay
+          setTimeout(() => {
+            window.location.href = signupForm.querySelector('input[name="_next"]').value;
+          }, 1500); // Redirect after 1.5 seconds
+        } else {
+          const data = await response.json();
+          let errorMessage = 'Oops! There was a problem with your submission.';
+          if (data.errors) {
+            errorMessage = data.errors.map(e => e.message).join(', ');
+          } else if (data.error) {
+            errorMessage = data.error;
+          }
+          formMessage.textContent = errorMessage;
+          formMessage.classList.add('error');
+          formMessage.style.display = 'block';
+
+          // GA4: Track Failed Lead Event
+          gtag('event', 'form_submission_failed', {
+            'event_category': 'Error',
+            'event_label': 'Signup Form Failed',
+            'error_message': errorMessage
+          });
+        }
+      } catch (error) {
+        formMessage.textContent = 'Network error. Please try again.';
+        formMessage.classList.add('error');
+        formMessage.style.display = 'block';
+        console.error('Form submission error:', error);
+
+        // GA4: Track Network Error Event
+        gtag('event', 'network_error', {
+          'event_category': 'Error',
+          'event_label': 'Form Submission Network Error',
+          'error_message': error.message
+        });
+      } finally {
+        loadingSpinner.style.display = 'none'; // Hide spinner
+      }
+    });
+
+    // 3. Smooth Scrolling for Anchor Links (CSS scroll-behavior: smooth) - no extra JS needed here
+
+    // 4. Scroll to Top Button Function
+    function topFunction() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+
+    // 5. Product Quick View Modal
+    const productModal = document.getElementById('productQuickViewModal');
+    const closeButtonModal = productModal.querySelector('.close-button'); // Use a distinct variable
+    const products = document.querySelectorAll('.product');
+    const modalProductImage = document.getElementById('modalProductImage');
+    const modalProductName = document.getElementById('modalProductName');
+    const modalProductDescription = document.getElementById('modalProductDescription');
+    const modalBuyNowButton = document.getElementById('modalBuyNowButton');
+
+    products.forEach(product => {
+      product.addEventListener('click', function(event) {
+        // Stop propagation if the direct "Buy Now" button inside product card is clicked
+        if (event.target.classList.contains('button')) { // Target the class of the buy button
+          return;
+        }
+
+        const name = this.getAttribute('data-product-name');
+        const description = this.getAttribute('data-product-desc');
+        const image = this.getAttribute('data-product-img');
+        const gumroadLink = this.getAttribute('data-gumroad-link');
+        const itemId = this.dataset.itemId; // Retrieve item ID from data attribute
+
+        modalProductImage.src = image;
+        modalProductName.textContent = name;
+        modalProductDescription.textContent = description;
+        modalBuyNowButton.href = gumroadLink;
+        modalBuyNowButton.dataset.itemId = itemId; // Set item ID on the modal button for GA4 tracking
+
+        productModal.style.display = 'flex'; // Use flex to center
+
+        // GA4: Track View Item Event for the modal
+        gtag('event', 'view_item', {
+          'items': [{
+            'item_id': itemId,
+            'item_name': name,
+            'item_category': this.dataset.productCategory, // Ensure you add this to your data-attributes
+            'price': parseFloat(this.dataset.productPrice) // Ensure you add this to your data-attributes
+          }]
+        });
+      });
+    });
+
+    closeButtonModal.addEventListener('click', function() {
+      productModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+      if (event.target == productModal) {
+        productModal.style.display = 'none';
+      }
+    });
+
+    // 6. Timed Lead Magnet Pop-up
+    const leadMagnetPopup = document.getElementById('leadMagnetPopup');
+    const closeLeadMagnetPopupBtn = document.getElementById('closeLeadMagnetPopup');
+
+    function showLeadMagnetPopup() {
+      // Check if user has already seen/closed it in this session (using sessionStorage)
+      if (sessionStorage.getItem('leadMagnetPopupShown') !== 'true' && sessionStorage.getItem('leadMagnetPopupClosed') !== 'true') {
+        leadMagnetPopup.style.display = 'flex';
+        // Mark as shown for the current session
+        sessionStorage.setItem('leadMagnetPopupShown', 'true');
+
+        // GA4: Track Pop-up Impression
+        gtag('event', 'popup_impression', {
+          'event_category': 'Engagement',
+          'event_label': 'Lead Magnet Popup Displayed',
+          'popup_name': 'Free AI Icon Pack Popup'
+        });
+      }
+    }
+
+    // Show popup after 10 seconds, or after user scrolls 50%
+    let scrollTriggered = false;
+    setTimeout(showLeadMagnetPopup, 10000); // 10 seconds
+
+    window.addEventListener('scroll', function() {
+      if (!scrollTriggered && (window.innerHeight + window.scrollY) >= document.body.offsetHeight / 2) {
+        showLeadMagnetPopup();
+        scrollTriggered = true; // Ensure it only triggers once per scroll threshold
+      }
+    });
+
+    closeLeadMagnetPopupBtn.addEventListener('click', function() {
+      leadMagnetPopup.style.display = 'none';
+      // Mark as closed for the current session
+      sessionStorage.setItem('leadMagnetPopupClosed', 'true');
+       // GA4: Track Pop-up close
+       gtag('event', 'popup_close', {
+          'event_category': 'Engagement',
+          'event_label': 'Lead Magnet Popup Closed',
+          'popup_name': 'Free AI Icon Pack Popup'
+        });
+    });
+
+    // Close popup and scroll to signup form
+    function closeLeadMagnetPopupAndScroll() {
+        leadMagnetPopup.style.display = 'none';
+        sessionStorage.setItem('leadMagnetPopupClosed', 'true'); // Mark as closed
+        document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    window.addEventListener('click', function(event) {
+        if (event.target == leadMagnetPopup) {
+            leadMagnetPopup.style.display = 'none';
+            sessionStorage.setItem('leadMagnetPopupClosed', 'true'); // Mark as closed
+            gtag('event', 'popup_close', { // Track closing by clicking outside
+                'event_category': 'Engagement',
+                'event_label': 'Lead Magnet Popup Click Outside',
+                'popup_name': 'Free AI Icon Pack Popup'
+            });
+        }
+    });
+
+    // --- Product Schema Markup Enhancement (more robust for multiple products) ---
+    // This is more advanced and often handled by a CMS/backend, but for a static site,
+    // if you want full schema for each product, you'd replicate the JSON-LD script for each.
+    // For now, I've kept one example in the head, and noted that it would be duplicated.
+    // To make it dynamic for multiple products on a static site, you'd need a build process
+    // or a much more complex JS script to generate it on page load based on data attributes.
+    // The current setup (one example in head) is good for demonstrating the concept.
+  </script>
+</body>
+</html>
