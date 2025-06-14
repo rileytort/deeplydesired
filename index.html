@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Deeply Desired</title>
+  <title>Deeply Desired - AI Powered Creative Tools & Digital Goods</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
-  <style>
+  <link rel="icon" type="image/png" href="images/favicon.png"> <style>
     body {
       font-family: 'Space Grotesk', sans-serif;
       margin: 0;
       padding: 0;
       background: #fff;
       color: #111;
+      line-height: 1.6;
     }
 
     header {
@@ -25,9 +26,15 @@
       margin: 0;
     }
 
+    h2 {
+      font-size: 2.2em;
+      margin-bottom: 25px;
+    }
+
     p {
-      font-size: 1.2em;
+      font-size: 1.1em; /* Slightly adjusted for better readability */
       color: #444;
+      margin-bottom: 1em;
     }
 
     .button {
@@ -39,19 +46,52 @@
       font-weight: bold;
       border-radius: 5px;
       margin-top: 20px;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background: #333;
     }
 
     .section {
-      padding: 60px 20px;
+      padding: 80px 20px; /* Increased padding for more breathing room */
       text-align: center;
+      max-width: 1000px; /* Max width for content sections */
+      margin: 0 auto; /* Center sections */
     }
 
+    /* Navigation Bar */
+    nav {
+      background: #111;
+      padding: 15px 20px;
+      text-align: center;
+      position: sticky; /* Makes the nav bar stick to the top */
+      top: 0;
+      z-index: 1000; /* Ensures it stays on top of other content */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 18px; /* Slightly increased margin */
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #0077cc; /* A subtle blue on hover */
+    }
+
+    /* Form Styles */
     input[type="email"] {
       padding: 12px;
       width: 250px;
       border: 1px solid #ccc;
       border-radius: 4px;
       margin-top: 10px;
+      font-size: 1em; /* Ensures consistency */
     }
 
     input[type="submit"] {
@@ -62,33 +102,171 @@
       border-radius: 4px;
       margin-left: 10px;
       cursor: pointer;
+      font-size: 1em; /* Ensures consistency */
+      transition: background 0.3s ease;
     }
 
+    input[type="submit"]:hover {
+      background: #333;
+    }
+
+    /* Shop Grid */
     .shop-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      padding: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Larger min width for products */
+      gap: 40px; /* Increased gap */
+      padding: 20px 0; /* Adjusted padding */
     }
 
     .product {
       border: 1px solid #eee;
       border-radius: 8px;
-      padding: 20px;
+      padding: 25px; /* Increased padding */
+      background: #fdfdfd;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Subtle shadow */
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-5px); /* Lift effect on hover */
+    }
+
+    .product img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 20px;
     }
 
     .product h3 {
       margin-top: 0;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .product p {
+      font-size: 1em;
+      color: #555;
+      min-height: 40px; /* Ensure consistent height for description */
     }
 
     .product a {
       text-decoration: none;
       color: #0077cc;
+      font-weight: bold;
+      display: inline-block; /* Allows padding */
+      margin-top: 15px;
+      transition: color 0.3s ease;
+    }
+
+    .product a:hover {
+      color: #0055aa;
+    }
+
+    /* Testimonials */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .testimonial-item {
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .testimonial-item p {
+      font-style: italic;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-item .author {
+      font-weight: bold;
+      color: #111;
+      text-align: right; /* Aligns author to the right within the box */
+      display: block; /* Ensures it takes full width for alignment */
+    }
+
+    /* About Section */
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .about-content p {
+      margin-bottom: 20px;
+    }
+
+    /* Social Media Icons */
+    .social-links {
+      margin-top: 40px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 15px;
+      font-size: 2em; /* Larger icons */
+      color: #111;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #0077cc; /* Example hover color */
+    }
+
+    /* Utility classes for text/alignment if needed */
+    .text-center {
+      text-align: center;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5em;
+      }
+      h2 {
+        font-size: 1.8em;
+      }
+      .section {
+        padding: 50px 15px;
+      }
+      input[type="email"] {
+        width: calc(100% - 24px); /* Full width minus padding */
+        margin-bottom: 10px;
+        margin-left: 0;
+      }
+      input[type="submit"] {
+        width: 100%;
+        margin-left: 0;
+      }
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+      .shop-grid, .testimonial-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+      }
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
+  <nav>
+    <a href="#shop">Shop</a>
+    <a href="#signup">Join Us</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <header>
     <h1>Deeply Desired</h1>
     <p>Minimal, AI-powered creative tools & digital goods</p>
@@ -97,31 +275,83 @@
 
   <section id="signup" class="section">
     <h2>Join Our Creative List</h2>
-    <p>Get early access to AI tools, digital drops & exclusive offers.</p>
+    <p>Get early access to AI tools, digital drops & exclusive offers. **Grab our Free AI Icon Pack upon signup!**</p>
     <form action="https://formspree.io/f/your-form-id" method="POST">
       <input type="email" name="email" placeholder="you@example.com" required />
       <input type="submit" value="Join" />
-    </form>
+      <input type="hidden" name="_next" value="https://yourwebsite.com/thankyou.html"> </form>
+    <p style="margin-top: 20px; font-size: 0.9em; color: #666;">*You will receive an email with a link to download your free icon pack.</p>
   </section>
 
   <section class="section" id="shop">
     <h2>Shop Digital Products</h2>
     <div class="shop-grid">
       <div class="product">
+        <img src="https://via.placeholder.com/400x300/f0f0f0/333333?text=AI+Art+Pack" alt="AI-Generated Art Pack Preview">
         <h3>AI-Generated Art Pack</h3>
-        <p>High-res JPGs + transparent PNGs</p>
-        <a href="https://yourgumroadlink.com" target="_blank">Buy Now →</a>
+        <p>A curated collection of high-resolution JPGs and transparent PNGs, perfect for personal or commercial projects. Explore unique styles generated by advanced AI.</p>
+        <a href="https://yourgumroadlink.com/ai-art-pack" target="_blank">Buy Now →</a>
       </div>
       <div class="product">
+        <img src="https://via.placeholder.com/400x300/f0f0f0/333333?text=Logo+Templates" alt="Logo Design Templates Preview">
         <h3>Logo Design Templates</h3>
-        <p>Editable in Figma & Canva</p>
-        <a href="https://yourgumroadlink.com" target="_blank">Buy Now →</a>
+        <p>Professionally designed, fully editable logo templates. Available in Figma and Canva formats for easy customization to fit your brand.</p>
+        <a href="https://yourgumroadlink.com/logo-templates" target="_blank">Buy Now →</a>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/400x300/f0f0f0/333333?text=Social+Media+Kit" alt="Social Media Kit Preview">
+        <h3>AI Social Media Kit</h3>
+        <p>Boost your online presence with AI-enhanced social media templates. Ready-to-use designs for Instagram, Facebook, and more.</p>
+        <a href="https://yourgumroadlink.com/social-media-kit" target="_blank">Buy Now →</a>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/400x300/f0f0f0/333333?text=Digital+Brush+Pack" alt="Digital Brush Pack Preview">
+        <h3>Digital Brush Pack</h3>
+        <p>Expand your creative toolkit with unique digital brushes for popular design software. Designed for artists and illustrators.</p>
+        <a href="https://yourgumroadlink.com/digital-brushes" target="_blank">Buy Now →</a>
       </div>
     </div>
   </section>
 
-  <footer class="section">
-    <p>© 2025 Deeply Desired · All rights reserved</p>
+  <section class="section" id="testimonials" style="background: #fafafa;">
+    <h2>What Our Creators Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-item">
+        <p>"Deeply Desired's AI art packs are an absolute game-changer for my design workflow. The quality and variety are unmatched!"</p>
+        <span class="author">- Alex C., Graphic Designer</span>
+      </div>
+      <div class="testimonial-item">
+        <p>"I needed a logo fast, and their templates were incredibly easy to customize. Saved me so much time and effort. Highly recommend!"</p>
+        <span class="author">- Jamie L., Startup Founder</span>
+      </div>
+      <div class="testimonial-item">
+        <p>"The creative list emails are genuinely valuable. Always new insights and exciting drops. Plus, the freebie was a nice bonus!"</p>
+        <span class="author">- Sarah P., Digital Artist</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Deeply Desired</h2>
+    <div class="about-content">
+      <p>At Deeply Desired, we believe in empowering creators with the most innovative tools and resources. We're a passionate team dedicated to exploring the intersection of artificial intelligence and creative expression.</p>
+      <p>Our mission is to simplify your creative process, providing you with high-quality digital goods and AI-powered utilities that spark inspiration and accelerate your projects. From unique art assets to versatile templates, we meticulously craft everything to ensure it meets your 'deepest desires' for creativity.</p>
+      <p>Join us on this journey to redefine what's possible in the digital creative space. We're constantly innovating and adding new products to help you bring your visions to life, effortlessly.</p>
+    </div>
+  </section>
+
+  <footer class="section" id="contact" style="background: #fafafa;">
+    <h2>Get in Touch</h2>
+    <p>Have questions, suggestions, or just want to say hello?</p>
+    <p>Email us at: <a href="mailto:hello@deeplydesired.com" style="color: #0077cc; text-decoration: none; font-weight: bold;">hello@deeplydesired.com</a></p>
+    <p style="margin-top: 30px;">Follow us on social media:</p>
+    <div class="social-links">
+      <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://pinterest.com/yourprofile" target="_blank" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+      <a href="https://twitter.com/yourprofile" target="_blank" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    <p style="margin-top: 40px; font-size: 0.9em; color: #666;">&copy; 2025 Deeply Desired &middot; All rights reserved</p>
   </footer>
-</body>
+
+  </body>
 </html>
