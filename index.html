@@ -2,122 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your AI Business</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deeply Desired</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background: #fff;
-      color: #111;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
+      color: #222;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      align-items: center;
+      padding: 80px 20px;
     }
+
     header {
-      padding: 1rem 2rem;
-      border-bottom: 1px solid #ddd;
-      font-weight: bold;
-      font-size: 1.25rem;
-    }
-    nav a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #111;
-      font-weight: 500;
-    }
-    nav a:hover {
-      color: #0070f3;
-    }
-    main {
-      flex: 1;
-      padding: 2rem;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    footer {
-      padding: 1rem 2rem;
+      max-width: 800px;
       text-align: center;
-      border-top: 1px solid #ddd;
-      font-size: 0.9rem;
+      margin-bottom: 50px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    header p {
+      font-size: 1.2rem;
       color: #666;
     }
-    h1, h2 {
-      margin-bottom: 0.5rem;
+
+    .cta {
+      margin-top: 40px;
     }
-    p {
-      line-height: 1.5;
-      margin-bottom: 1.5rem;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      max-width: 400px;
-    }
-    input, textarea {
-      margin-bottom: 1rem;
-      padding: 0.5rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
+
+    .cta a {
+      text-decoration: none;
+      padding: 12px 24px;
+      background: #000;
+      color: #fff;
+      font-weight: 600;
       border-radius: 4px;
-      resize: vertical;
+      transition: background 0.3s;
     }
-    button {
-      padding: 0.7rem;
-      font-size: 1rem;
-      background-color: #0070f3;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+
+    .cta a:hover {
+      background: #333;
     }
-    button:hover {
-      background-color: #005bb5;
+
+    footer {
+      margin-top: 100px;
+      font-size: 0.9rem;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
   <header>
-    Your AI Business
-    <nav style="float: right;">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <h1>Deeply Desired</h1>
+    <p>An AI-powered creative lab. Building ideas into digital realities.</p>
+    <div class="cta">
+      <a href="#launch">Start Creating</a>
+    </div>
   </header>
-  <main>
-    <section id="home">
-      <h1>Welcome to Your AI Business</h1>
-      <p>Innovative AI-powered solutions designed to enhance your creativity and productivity.</p>
-    </section>
-    <section id="about">
-      <h2>About Us</h2>
-      <p>We combine cutting-edge artificial intelligence with human creativity to deliver unique products and services tailored to your needs.</p>
-    </section>
-    <section id="services">
-      <h2>Our Services</h2>
-      <ul>
-        <li>AI-Generated Art & Design</li>
-        <li>Custom AI Content Creation</li>
-        <li>Automated Music Production</li>
-        <li>Personalized AI Tools</li>
-      </ul>
-    </section>
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" rows="4" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </section>
-  </main>
+
   <footer>
-    &copy; 2025 Your AI Business. All rights reserved.
+    &copy; 2025 Deeply Desired. All rights reserved.
   </footer>
 </body>
 </html>
