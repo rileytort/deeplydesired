@@ -2,79 +2,126 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Deeply Desired</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
+    body {
+      font-family: 'Space Grotesk', sans-serif;
       margin: 0;
       padding: 0;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f9f9f9;
-      color: #222;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 80px 20px;
+      background: #fff;
+      color: #111;
     }
 
     header {
-      max-width: 800px;
+      padding: 60px 20px;
       text-align: center;
-      margin-bottom: 50px;
+      background: #fafafa;
     }
 
-    header h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 20px;
+    h1 {
+      font-size: 3em;
+      margin: 0;
     }
 
-    header p {
-      font-size: 1.2rem;
-      color: #666;
+    p {
+      font-size: 1.2em;
+      color: #444;
     }
 
-    .cta {
-      margin-top: 40px;
-    }
-
-    .cta a {
-      text-decoration: none;
-      padding: 12px 24px;
-      background: #000;
+    .button {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #111;
       color: #fff;
-      font-weight: 600;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    input[type="email"] {
+      padding: 12px;
+      width: 250px;
+      border: 1px solid #ccc;
       border-radius: 4px;
-      transition: background 0.3s;
+      margin-top: 10px;
     }
 
-    .cta a:hover {
-      background: #333;
+    input[type="submit"] {
+      padding: 12px 24px;
+      background: #111;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      margin-left: 10px;
+      cursor: pointer;
     }
 
-    footer {
-      margin-top: 100px;
-      font-size: 0.9rem;
-      color: #aaa;
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      padding: 40px;
+    }
+
+    .product {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .product h3 {
+      margin-top: 0;
+    }
+
+    .product a {
+      text-decoration: none;
+      color: #0077cc;
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>Deeply Desired</h1>
-    <p>An AI-powered creative lab. Building ideas into digital realities.</p>
-    <div class="cta">
-      <a href="#launch">Start Creating</a>
-    </div>
+    <p>Minimal, AI-powered creative tools & digital goods</p>
+    <a class="button" href="#signup">Start Creating</a>
   </header>
 
-  <footer>
-    &copy; 2025 Deeply Desired. All rights reserved.
+  <section id="signup" class="section">
+    <h2>Join Our Creative List</h2>
+    <p>Get early access to AI tools, digital drops & exclusive offers.</p>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="email" name="email" placeholder="you@example.com" required />
+      <input type="submit" value="Join" />
+    </form>
+  </section>
+
+  <section class="section" id="shop">
+    <h2>Shop Digital Products</h2>
+    <div class="shop-grid">
+      <div class="product">
+        <h3>AI-Generated Art Pack</h3>
+        <p>High-res JPGs + transparent PNGs</p>
+        <a href="https://yourgumroadlink.com" target="_blank">Buy Now →</a>
+      </div>
+      <div class="product">
+        <h3>Logo Design Templates</h3>
+        <p>Editable in Figma & Canva</p>
+        <a href="https://yourgumroadlink.com" target="_blank">Buy Now →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="section">
+    <p>© 2025 Deeply Desired · All rights reserved</p>
   </footer>
 </body>
 </html>
