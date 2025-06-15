@@ -77,10 +77,19 @@
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       transition: background 0.3s ease; /* For sticky nav background change */
+      display: flex; /* Use flexbox for alignment */
+      justify-content: space-between; /* Space between logo/brand and menu */
+      align-items: center; /* Vertically align items */
     }
 
     nav.scrolled {
       background: rgba(17, 17, 17, 0.95); /* Slightly transparent on scroll */
+    }
+
+    .nav-links {
+      display: flex; /* Default to flex for desktop */
+      justify-content: center;
+      flex-grow: 1; /* Allow links to take available space */
     }
 
     nav a {
@@ -94,6 +103,16 @@
 
     nav a:hover {
       color: #0077cc;
+    }
+
+    /* Hamburger Menu Icon */
+    .hamburger-menu {
+      display: none; /* Hidden by default on desktop */
+      font-size: 1.8em;
+      color: #fff;
+      cursor: pointer;
+      padding: 5px;
+      z-index: 1001; /* Ensure it's above other content */
     }
 
     /* Form Styles */
@@ -434,10 +453,46 @@
         width: 100%;
         margin-left: 0;
       }
-      nav a {
-        display: block;
-        margin: 10px 0;
+
+      /* Mobile Navigation Specific Styles */
+      .nav-links {
+        display: none; /* Hide navigation links by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        background: #111;
+        position: absolute;
+        top: 60px; /* Adjust based on your nav height */
+        left: 0;
+        padding: 20px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: all 0.3s ease-in-out;
+        transform: translateY(-100%); /* Start off-screen */
+        overflow: hidden; /* Hide overflow when closed */
       }
+
+      .nav-links.active {
+        display: flex; /* Show when active */
+        transform: translateY(0); /* Slide in */
+      }
+
+      nav a {
+        margin: 10px 0; /* Adjust spacing for vertical links */
+        padding: 10px 20px; /* Add padding for clickable area */
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box; /* Include padding in width */
+      }
+
+      .hamburger-menu {
+        display: block; /* Show hamburger on mobile */
+      }
+
+      /* Adjust padding for nav on mobile to make space for hamburger */
+      nav {
+        padding: 15px 20px; /* Ensure consistent padding with hamburger */
+        justify-content: space-between; /* Keep hamburger and potential logo separated */
+      }
+
       .shop-grid, .testimonial-grid {
         grid-template-columns: 1fr;
       }
@@ -509,15 +564,20 @@
     }]
   }
   </script>
-  </head>
+</head>
 
 <body>
   <nav>
-    <a href="#shop" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Shop'});">Shop</a>
-    <a href="#signup" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Join Us'});">Join Us</a>
-    <a href="#testimonials" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Testimonials'});">Testimonials</a>
-    <a href="#about" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'About Us'});">About</a>
-    <a href="#contact" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Contact'});">Contact</a>
+    <div class="hamburger-menu" id="hamburger-menu">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="#shop" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Shop'});">Shop</a>
+      <a href="#signup" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Join Us'});">Join Us</a>
+      <a href="#testimonials" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Testimonials'});">Testimonials</a>
+      <a href="#about" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'About Us'});">About</a>
+      <a href="#contact" onclick="gtag('event', 'click', { 'event_category': 'Navigation', 'event_label': 'Contact'});">Contact</a>
+    </div>
   </nav>
 
   <header>
@@ -605,285 +665,4 @@
         <p>"Deeply Desired's AI art packs are an absolute game-changer for my design workflow. The quality and variety are unmatched!"</p>
         <span class="author">- Alex C., Graphic Designer</span>
       </div>
-      <div class="testimonial-item">
-        <p>"I needed a logo fast, and their templates were incredibly easy to customize. Saved me so much time and effort. Highly recommend!"</p>
-        <span class="author">- Jamie L., Startup Founder</span>
-      </div>
-      <div class="testimonial-item">
-        <p>"The creative list emails are genuinely valuable. Always new insights and exciting drops. Plus, the freebie was a nice bonus!"</p>
-        <span class="author">- Sarah P., Digital Artist</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="about">
-    <h2>About Deeply Desired: Empowering Modern Creativity</h2>
-    <div class="about-content">
-      <p>At Deeply Desired, we believe in empowering creators with the most innovative tools and resources. We're a passionate team dedicated to exploring the intersection of artificial intelligence and creative expression.</p>
-      <p>Our mission is to simplify your creative process, providing you with high-quality digital goods and AI-powered utilities that spark inspiration and accelerate your projects. From unique art assets to versatile templates, we meticulously craft everything to ensure it meets your 'deepest desires' for creativity.</p>
-      <p>Join us on this journey to redefine what's possible in the digital creative space. We're constantly innovating and adding new products to help you bring your visions to life, effortlessly.</p>
-    </div>
-  </section>
-
-  <footer class="section" id="contact" style="background: #fafafa;">
-    <h2>Connect With Us</h2>
-    <p>Have questions, suggestions, or just want to say hello? We'd love to hear from you!</p>
-    <p>Email us directly: <a href="mailto:@officialdeeplydesired.com" style="color: #0077cc; text-decoration: none; font-weight: bold;">hello@deeplydesired.com</a></p>
-    <p style="margin-top: 30px;">Follow our creative journey on social media:</p>
-    <div class="social-links">
-      <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Follow us on Instagram" onclick="gtag('event', 'click', { 'event_category': 'Social', 'event_label': 'Instagram Footer'});"><i class="fab fa-instagram"></i></a>
-      <a href="https://pinterest.com/yourprofile" target="_blank" aria-label="Find us on Pinterest" onclick="gtag('event', 'click', { 'event_category': 'Social', 'event_label': 'Pinterest Footer'});"><i class="fab fa-pinterest"></i></a>
-      <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Follow us on X (Twitter)" onclick="gtag('event', 'click', { 'event_category': 'Social', 'event_label': 'X Footer'});"><i class="fab fa-x-twitter"></i></a>
-      </div>
-    <p style="margin-top: 40px; font-size: 0.9em; color: #666;">&copy; 2025 Deeply Desired &middot; All rights reserved</p>
-  </footer>
-
-  <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
-
-  <div id="productQuickViewModal" class="modal">
-    <div class="modal-content">
-      <span class="close-button">&times;</span>
-      <img id="modalProductImage" src="" alt="Product Image">
-      <h3 id="modalProductName"></h3>
-      <p id="modalProductDescription"></p>
-      <a id="modalBuyNowButton" href="#" target="_blank" class="button"
-         onclick="gtag('event', 'purchase_attempt', { 'event_category': 'Product Modal', 'event_label': 'Buy Now Modal Click', 'item_id': modalBuyNowButton.dataset.itemId, 'item_name': modalProductName.textContent });">Buy Now →</a>
-    </div>
-  </div>
-
-  <div id="leadMagnetPopup" class="modal">
-    <div class="popup-content">
-      <span class="close-button" id="closeLeadMagnetPopup">&times;</span>
-      <h3>Unlock Your Creative Flow!</h3>
-      <p>Join our exclusive creative community and get a **FREE AI Icon Pack** to supercharge your next project!</p>
-      <img src="https://via.placeholder.com/300x200/e0e0e0/555555?text=Free+AI+Icon+Pack" alt="Free AI Icon Pack Preview" style="max-width: 100%; height: auto; border-radius: 5px; margin-bottom: 20px;">
-      <a href="#signup" class="button" onclick="closeLeadMagnetPopupAndScroll(); gtag('event', 'click', { 'event_category': 'Popup', 'event_label': 'Get Free Pack Popup'});">Get Your Free Pack Now →</a>
-      <p style="font-size: 0.85em; margin-top: 20px; color: #888;">No spam, just pure creative inspiration.</p>
-    </div>
-  </div>
-
-
-  <script>
-    // 1. Sticky Nav Bar with background change on scroll
-    window.onscroll = function() {
-      const nav = document.querySelector('nav');
-      if (window.pageYOffset > 50) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-
-      // 4. Show/Hide Scroll to Top Button
-      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        scrollToTopBtn.style.display = "block";
-      } else {
-        scrollToTopBtn.style.display = "none";
-      }
-    };
-
-    // 2. Form Submission Feedback (using Fetch API for Formspree)
-    const signupForm = document.getElementById('signup-form');
-    const formMessage = signupForm.querySelector('.form-message');
-    const loadingSpinner = signupForm.querySelector('.loading-spinner');
-
-    signupForm.addEventListener('submit', async function(event) {
-      event.preventDefault(); // Prevent default form submission
-
-      loadingSpinner.style.display = 'block'; // Show spinner
-      formMessage.style.display = 'none'; // Hide previous messages
-
-      try {
-        const response = await fetch(signupForm.action, {
-          method: 'POST',
-          body: new FormData(signupForm),
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-
-        if (response.ok) {
-          formMessage.textContent = 'Success! Redirecting you now...';
-          formMessage.classList.remove('error');
-          formMessage.style.display = 'block';
-          signupForm.reset(); // Clear the form
-
-          // GA4: Track Lead Generation Event
-          gtag('event', 'generate_lead', {
-            'event_category': 'Conversion',
-            'event_label': 'Email Signup - Free Pack',
-            'value': 1 // Assign a value if desired, e.g., for lead
-          });
-
-          // Redirect to thank you page after a short delay
-          setTimeout(() => {
-            window.location.href = signupForm.querySelector('input[name="_next"]').value;
-          }, 1500); // Redirect after 1.5 seconds
-        } else {
-          const data = await response.json();
-          let errorMessage = 'Oops! There was a problem with your submission.';
-          if (data.errors) {
-            errorMessage = data.errors.map(e => e.message).join(', ');
-          } else if (data.error) {
-            errorMessage = data.error;
-          }
-          formMessage.textContent = errorMessage;
-          formMessage.classList.add('error');
-          formMessage.style.display = 'block';
-
-          // GA4: Track Failed Lead Event
-          gtag('event', 'form_submission_failed', {
-            'event_category': 'Error',
-            'event_label': 'Signup Form Failed',
-            'error_message': errorMessage
-          });
-        }
-      } catch (error) {
-        formMessage.textContent = 'Network error. Please try again.';
-        formMessage.classList.add('error');
-        formMessage.style.display = 'block';
-        console.error('Form submission error:', error);
-
-        // GA4: Track Network Error Event
-        gtag('event', 'network_error', {
-          'event_category': 'Error',
-          'event_label': 'Form Submission Network Error',
-          'error_message': error.message
-        });
-      } finally {
-        loadingSpinner.style.display = 'none'; // Hide spinner
-      }
-    });
-
-    // 3. Smooth Scrolling for Anchor Links (CSS scroll-behavior: smooth) - no extra JS needed here
-
-    // 4. Scroll to Top Button Function
-    function topFunction() {
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    }
-
-    // 5. Product Quick View Modal
-    const productModal = document.getElementById('productQuickViewModal');
-    const closeButtonModal = productModal.querySelector('.close-button'); // Use a distinct variable
-    const products = document.querySelectorAll('.product');
-    const modalProductImage = document.getElementById('modalProductImage');
-    const modalProductName = document.getElementById('modalProductName');
-    const modalProductDescription = document.getElementById('modalProductDescription');
-    const modalBuyNowButton = document.getElementById('modalBuyNowButton');
-
-    products.forEach(product => {
-      product.addEventListener('click', function(event) {
-        // Stop propagation if the direct "Buy Now" button inside product card is clicked
-        if (event.target.classList.contains('button')) { // Target the class of the buy button
-          return;
-        }
-
-        const name = this.getAttribute('data-product-name');
-        const description = this.getAttribute('data-product-desc');
-        const image = this.getAttribute('data-product-img');
-        const gumroadLink = this.getAttribute('data-gumroad-link');
-        const itemId = this.dataset.itemId; // Retrieve item ID from data attribute
-
-        modalProductImage.src = image;
-        modalProductName.textContent = name;
-        modalProductDescription.textContent = description;
-        modalBuyNowButton.href = gumroadLink;
-        modalBuyNowButton.dataset.itemId = itemId; // Set item ID on the modal button for GA4 tracking
-
-        productModal.style.display = 'flex'; // Use flex to center
-
-        // GA4: Track View Item Event for the modal
-        gtag('event', 'view_item', {
-          'items': [{
-            'item_id': itemId,
-            'item_name': name,
-            'item_category': this.dataset.productCategory, // Ensure you add this to your data-attributes
-            'price': parseFloat(this.dataset.productPrice) // Ensure you add this to your data-attributes
-          }]
-        });
-      });
-    });
-
-    closeButtonModal.addEventListener('click', function() {
-      productModal.style.display = 'none';
-    });
-
-    window.addEventListener('click', function(event) {
-      if (event.target == productModal) {
-        productModal.style.display = 'none';
-      }
-    });
-
-    // 6. Timed Lead Magnet Pop-up
-    const leadMagnetPopup = document.getElementById('leadMagnetPopup');
-    const closeLeadMagnetPopupBtn = document.getElementById('closeLeadMagnetPopup');
-
-    function showLeadMagnetPopup() {
-      // Check if user has already seen/closed it in this session (using sessionStorage)
-      if (sessionStorage.getItem('leadMagnetPopupShown') !== 'true' && sessionStorage.getItem('leadMagnetPopupClosed') !== 'true') {
-        leadMagnetPopup.style.display = 'flex';
-        // Mark as shown for the current session
-        sessionStorage.setItem('leadMagnetPopupShown', 'true');
-
-        // GA4: Track Pop-up Impression
-        gtag('event', 'popup_impression', {
-          'event_category': 'Engagement',
-          'event_label': 'Lead Magnet Popup Displayed',
-          'popup_name': 'Free AI Icon Pack Popup'
-        });
-      }
-    }
-
-    // Show popup after 10 seconds, or after user scrolls 50%
-    let scrollTriggered = false;
-    setTimeout(showLeadMagnetPopup, 10000); // 10 seconds
-
-    window.addEventListener('scroll', function() {
-      if (!scrollTriggered && (window.innerHeight + window.scrollY) >= document.body.offsetHeight / 2) {
-        showLeadMagnetPopup();
-        scrollTriggered = true; // Ensure it only triggers once per scroll threshold
-      }
-    });
-
-    closeLeadMagnetPopupBtn.addEventListener('click', function() {
-      leadMagnetPopup.style.display = 'none';
-      // Mark as closed for the current session
-      sessionStorage.setItem('leadMagnetPopupClosed', 'true');
-       // GA4: Track Pop-up close
-       gtag('event', 'popup_close', {
-          'event_category': 'Engagement',
-          'event_label': 'Lead Magnet Popup Closed',
-          'popup_name': 'Free AI Icon Pack Popup'
-        });
-    });
-
-    // Close popup and scroll to signup form
-    function closeLeadMagnetPopupAndScroll() {
-        leadMagnetPopup.style.display = 'none';
-        sessionStorage.setItem('leadMagnetPopupClosed', 'true'); // Mark as closed
-        document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    window.addEventListener('click', function(event) {
-        if (event.target == leadMagnetPopup) {
-            leadMagnetPopup.style.display = 'none';
-            sessionStorage.setItem('leadMagnetPopupClosed', 'true'); // Mark as closed
-            gtag('event', 'popup_close', { // Track closing by clicking outside
-                'event_category': 'Engagement',
-                'event_label': 'Lead Magnet Popup Click Outside',
-                'popup_name': 'Free AI Icon Pack Popup'
-            });
-        }
-    });
-
-    // --- Product Schema Markup Enhancement (more robust for multiple products) ---
-    // This is more advanced and often handled by a CMS/backend, but for a static site,
-    // if you want full schema for each product, you'd replicate the JSON-LD script for each.
-    // For now, I've kept one example in the head, and noted that it would be duplicated.
-    // To make it dynamic for multiple products on a static site, you'd need a build process
-    // or a much more complex JS script to generate it on page load based on data attributes.
-    // The current setup (one example in head) is good for demonstrating the concept.
-  </script>
-</body>
-</html>
+      <div class="
